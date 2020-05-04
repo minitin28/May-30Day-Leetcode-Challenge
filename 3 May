@@ -1,0 +1,48 @@
+Problem Statement:
+Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
+
+Each letter in the magazine string can only be used once in your ransom note.
+
+Note:
+You may assume that both strings contain only lowercase letters.
+
+canConstruct("a", "b") -> false
+canConstruct("aa", "ab") -> false
+canConstruct("aa", "aab") -> true
+
+Solution Code:
+
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] arr = new int[26];
+        
+        for(char c:magazine.toCharArray())
+            arr[c-'a']++;
+        for(char c:ransomNote.toCharArray())
+        {
+            if(arr[c-'a']==0)
+                return false;
+            arr[c-'a']--;
+        }
+        return true;
+    }
+}
+
+Explanation:
+Step 1:
+create an integer array of length 26,and initialize it with 0.
+
+Step 2:
+Read String magazine and store the occurance of each character in string to the array in order of there arrival.
+
+Step 3:
+Read String ransomNote and if the frequency is zero anywhere which means there is nothing to balance then return false
+otherwise,
+decrement the occurance of character to array containing frequency of each character in magazine.
+
+Step 4:
+If both loop runs completely and succesfully,return true.
+
+
+Time Complexity:
+O(N)
