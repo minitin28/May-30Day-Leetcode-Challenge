@@ -10,6 +10,8 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
 class Solution {
     public int findComplement(int num) {
         List<Integer> values = new ArrayList<>();
+        
+        //Converting decimal to Binary.
         while(num>0)
         {
            int rem = num%2;
@@ -17,12 +19,16 @@ class Solution {
             num = num/2;
         }
         
+        //An array of size same as length of List.
         int[] arr = new int[values.size()];
         
+        //Converting List to Integer Array.
         for(int i = 0 ; i<values.size() ; i++)
         {
             arr[i] = values.get(i);
         }
+        
+        //Complement of the number in binary form.
         for(int i = 0 ; i < arr.length ; i++)
         {
             if(arr[i] == 1)
@@ -35,6 +41,7 @@ class Solution {
             }
         }
 
+        //Binary Complement to Decimal.
         int sum = 0;
         for(int i = arr.length - 1 ; i>=0 ; i--)
         {
