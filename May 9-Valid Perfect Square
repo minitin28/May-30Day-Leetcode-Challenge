@@ -1,0 +1,71 @@
+Problem Statement : 
+Given a positive integer num, write a function which returns True if num is a perfect square else False.
+
+Note: Do not use any built-in library function such as sqrt.
+
+Example 1:
+
+Input: 16
+Output: true
+Example 2:
+
+Input: 14
+Output: false
+
+
+
+Java Code:  Time Limit Exceeded but passes all test cases.
+
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        //boolean isPerfect = false;
+        if(num==1)
+            return true;
+        else if(num>1)
+        {
+            for(int i = 1 ; i <= num/2 ; i++)
+            {
+               if(i * i == num)
+               {
+                //isPerfect = true;
+                   return true;
+               }
+            }
+        }
+        // if(isPerfect==true)
+        //     return isPerfect;
+        return false;
+    }
+}
+
+Java Code : Passes all test cases in allotted time.
+
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        if(num==1)
+            return true;
+        else if(num>1&&num<=1000000000)
+        {
+            for(int i = 1 ; i <= num/2 ; i++)
+            {
+               if(i * i == num)
+               {
+                   return true;
+               }
+            }
+        }
+        else if(num>1000000000)
+        {
+            for(int i = 1000000000/100000  ; i <= num/2 ; i++)
+            {
+               if(i * i == num)
+               {
+                   return true;
+               }
+            }
+        }
+        return false;
+    }
+}
+
+Complexity : O(N)
